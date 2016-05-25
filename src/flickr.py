@@ -107,7 +107,7 @@ def download_image(download_dir: str, image: FlickrImage) -> None:
 
 
 def main():
-    download_dir = make_folder(r'E:\Output\Scrapers\megane_wakui')
+    download_dir = make_folder(r'E:\Output\Scrapers\flickr\megane_wakui')
     profile_page = "https://www.flickr.com/photos/megane_wakui/"
     credentials = get_user_credentials(profile_page)
 

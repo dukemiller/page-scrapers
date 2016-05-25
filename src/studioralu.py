@@ -8,9 +8,9 @@ from bs4 import BeautifulSoup
 import requests
 import os
 
+page = r'http://www.studioralu.com/'
 download_dir = make_folder(r'E:\Output\Scrapers\studioralu')
 GalleryImage = namedtuple('gallery_image', "link name ext")
-page = r'http://www.studioralu.com/'
 
 soup = BeautifulSoup(requests.get(page, headers=REQUESTS_HEADER).text, 'lxml')
 images = (GalleryImage(img['data-src'], img['alt'], get_content_subtype(img['data-src']))
