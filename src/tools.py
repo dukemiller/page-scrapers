@@ -1,10 +1,14 @@
 import os
 from urllib.request import urlopen
 
+
 REQUESTS_HEADER = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0'}
 
 
 def make_folder(path: str) -> str:
+    """ Creates a path arbitrarily deep if not exists and returns that path,
+    e.g. C:\ exists so C:\{The\New\Path} is created, and the whole path is returned. """
+
     if not os.path.exists(path):
         os.makedirs(path)
     return path
@@ -27,4 +31,5 @@ def get_extension_from_url(url: str) -> str:
 def get_filename(url: str) -> str:
     """ Returns the filename from a url if there are no slashes in the name,
     e.g. 'http://google.com/{file.png}' """
+
     return url.split('/')[-1]
