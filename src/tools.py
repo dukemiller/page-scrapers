@@ -16,3 +16,10 @@ def get_content_subtype(url: str) -> str:
 
     return urlopen(url).info().get_content_subtype()
 
+
+def get_extension_from_url(url: str) -> str:
+    """ Returns the extension of a url,
+    e.g. 'http://google.com/image{.jpg}' """
+
+    return '.' + url.split('.')[-1]
+
