@@ -1,7 +1,7 @@
 """ Downloads the original gallery images from studioralu.com.
 """
 
-from tools import REQUESTS_HEADER, get_content_type, make_folder
+from tools import REQUESTS_HEADER, get_content_subtype, make_folder
 from urllib.request import urlretrieve
 from collections import namedtuple
 from bs4 import BeautifulSoup
@@ -13,7 +13,7 @@ gallery_image = namedtuple('gallery_image', "link name ext")
 page = r'http://www.studioralu.com/'
 
 soup = BeautifulSoup(requests.get(page, headers=REQUESTS_HEADER).text, 'lxml')
-images = (gallery_image(img['data-src'], img['alt'], get_content_type(img['data-src']))
+images = (gallery_image(img['data-src'], img['alt'], get_content_subtype(img['data-src']))
           for img in soup.find_all('img'))
 
 for image in images:

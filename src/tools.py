@@ -10,7 +10,7 @@ def make_folder(path: str) -> str:
     return path
 
 
-def get_content_type(url: str) -> str:
+def get_content_subtype(url: str) -> str:
     """ Returns the second part of content-type in the content header,
      e.g. 'Content-Type: image/{jpeg}' """
 
