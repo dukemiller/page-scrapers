@@ -1,0 +1,18 @@
+import os
+from urllib.request import urlopen
+
+REQUESTS_HEADER = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0'}
+
+
+def make_folder(path: str) -> str:
+    if not os.path.exists(path):
+        os.mkdir(path)
+    return path
+
+
+def get_content_type(url: str) -> str:
+    """ Returns the second part of content-type in the content header,
+     e.g. 'Content-Type: image/{jpeg}' """
+
+    return urlopen(url).info().get_content_subtype()
+
