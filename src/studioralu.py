@@ -1,5 +1,4 @@
-""" Downloads the original gallery images from studioralu.com.
-"""
+""" Downloads every original sized image in the gallery. """
 
 from tools import REQUESTS_HEADER, get_content_subtype, make_output_folder
 from urllib.request import urlretrieve

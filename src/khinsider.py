@@ -1,5 +1,4 @@
-""" Downloads every song for a video game soundtrack.
-"""
+""" Downloads every song for a video game soundtrack. """
 
 from bs4 import BeautifulSoup
 from urllib.request import urlretrieve

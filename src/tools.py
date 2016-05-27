@@ -1,8 +1,6 @@
-from typing import List
 import os
 import inspect
 from urllib.request import urlopen
-
 
 REQUESTS_HEADER = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0'}
 OUTPUT_FOLDER = r'E:\Output\scrapers'
@@ -17,7 +15,7 @@ def make_folder(path: str) -> str:
     return path
 
 
-def make_output_folder(*optional: List[str]) -> str:
+def make_output_folder(*args: str) -> str:
     """ Create a folder in the output folder with the name of the of the calling script
      with any extra parameters after.
      e.g. called from flickr.py, the folder will be {C:\...\...\OUTPUT_FOLDER\flickr},
@@ -29,7 +27,7 @@ def make_output_folder(*optional: List[str]) -> str:
     delimiter = '/' if filename.count("/") > 0 else '\\'
     name = filename.split(delimiter)[-1].split('.py')[0]
 
-    path = os.path.join(OUTPUT_FOLDER, name, *optional)
+    path = os.path.join(OUTPUT_FOLDER, name, *args)
 
     return make_folder(path)
 

@@ -3,8 +3,7 @@
 Note: This is generally less of a scraper than what would usually be, but I do
 sort of take advantage of flickr's API for how it handles requests and gives
 authentication to viewers on a page through temporary keys so I would still
-call it a scraper
-"""
+call it a scraper """
 
 from tools import REQUESTS_HEADER, make_output_folder, get_extension_from_url
 from urllib.request import urlretrieve
@@ -41,6 +40,7 @@ def get_url_from_flickr_image_page(flickr_image_page_url: str) -> str:
 def get_user_credentials(flickr_user_url: str) -> Credentials:
     """ Parses the page for the plain text displayed credentials
     for accessing the API. """
+
     html = requests.get(flickr_user_url, headers=REQUESTS_HEADER).text
 
     left = html.find('params: {"nsid":"')
@@ -80,6 +80,7 @@ def create_api_request_url(page: int, credentials: Credentials) -> str:
 
 def get_images_from_page(page: int, credentials: Credentials) -> List[FlickrImage]:
     """ Retrieves images with high quality urls only from the current page in the API. """
+
     url = create_api_request_url(page, credentials)
     request = requests.get(url).json()['photos']['photo']
     response = [FlickrImage(link['id'], link['url_h_cdn']) for link in request

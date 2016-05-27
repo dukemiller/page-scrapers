@@ -1,3 +1,5 @@
+""" Downloads every song for an anime soundtrack. """
+
 from bs4 import BeautifulSoup
 import requests
 import os
