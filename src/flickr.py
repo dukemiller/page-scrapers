@@ -88,14 +88,13 @@ def get_images_from_page(page: int, credentials: Credentials) -> List[FlickrImag
     return response
 
 
-def get_all_images_from_page(credentials: Credentials) -> Iterable[List[FlickrImage]]:
+def get_all_images_from_user(credentials: Credentials) -> Iterable[List[FlickrImage]]:
     page = 1
     previous, current = None, get_images_from_page(page, credentials)
 
     while previous != current:
         yield current
-        page += 1
-        previous, current = current, get_images_from_page(page, credentials)
+        page, previous, current = page + 1, current, get_images_from_page(page, credentials)
 
 
 def download_image(download_dir: str, image: FlickrImage) -> None:
@@ -112,7 +111,7 @@ def main():
     profile_page = "https://www.flickr.com/photos/megane_wakui/"
     credentials = get_user_credentials(profile_page)
 
-    for image_collection in get_all_images_from_page(credentials):
+    for image_collection in get_all_images_from_user(credentials):
         for image in image_collection:
             download_image(download_dir, image)
 
