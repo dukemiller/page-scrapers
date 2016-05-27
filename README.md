@@ -1,7 +1,7 @@
-## Page Parsers 
+## Page Scrapers 
 
-Some simple page parsers for retrieving random things from pages that don't
-have an api.
+Some simple page scrapers for retrieving random things from pages that don't
+have an api / the api is ridiculous and/or extremely exclusive.
 
 
 #### Notes
