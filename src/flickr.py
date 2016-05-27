@@ -6,7 +6,7 @@ authentication to viewers on a page through temporary keys so I would still
 call it a scraper
 """
 
-from tools import REQUESTS_HEADER, make_folder, get_extension_from_url
+from tools import REQUESTS_HEADER, make_output_folder, get_extension_from_url
 from urllib.request import urlretrieve
 from collections import namedtuple
 from typing import Iterable, List
@@ -107,7 +107,7 @@ def download_image(download_dir: str, image: FlickrImage) -> None:
 
 
 def main():
-    download_dir = make_folder(r'E:\Output\Scrapers\flickr\megane_wakui')
+    download_dir = make_output_folder('megane_wakui')
     profile_page = "https://www.flickr.com/photos/megane_wakui/"
     credentials = get_user_credentials(profile_page)
 
