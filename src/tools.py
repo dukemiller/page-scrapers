@@ -27,8 +27,9 @@ def make_output_folder(*optional: List[str]) -> str:
     module = inspect.getmodule(frame[0])
     filename = module.__file__
     delimiter = '/' if filename.count("/") > 0 else '\\'
+    name = filename.split(delimiter)[-1].split('.py')[0]
 
-    path = os.path.join(OUTPUT_FOLDER, filename.split(delimiter)[-1], *optional)
+    path = os.path.join(OUTPUT_FOLDER, name, *optional)
 
     return make_folder(path)
 
@@ -52,3 +53,11 @@ def get_url_filename(url: str) -> str:
     e.g. 'http://google.com/{file.png}' """
 
     return url.split('/')[-1]
+
+
+def get_filename(path: str) -> str:
+    """ Returns the path filename. """
+
+    delimiter = '/' if path.count("/") > 0 else '\\'
+    return path.split(delimiter)[-1]
+
