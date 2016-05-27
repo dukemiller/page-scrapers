@@ -94,7 +94,8 @@ def get_all_images_from_user(credentials: Credentials) -> Iterable[List[FlickrIm
 
     while previous != current:
         yield current
-        page, previous, current = page + 1, current, get_images_from_page(page, credentials)
+        page += 1
+        previous, current = current, get_images_from_page(page, credentials)
 
 
 def download_image(download_dir: str, image: FlickrImage) -> None:
