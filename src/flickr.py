@@ -64,18 +64,18 @@ def create_api_request_url(page: int, credentials: Credentials) -> str:
            "&extras=can_addmeta%2Ccan_comment%2Ccan_download%2Ccan_share%2Ccontact%2Ccount_comments%2Ccount_faves%2Ccount_views%2Cdate_taken%2Cdate_upload%2Cdescription%2Cicon_urls_deep%2Cisfavorite%2Cispro%2Clicense%2Cmedia%2Cneeds_interstitial%2Cowner_name%2Cowner_datecreate%2Cpath_alias%2Crealname%2Crotation%2Csafety_level%2Csecret_k%2Csecret_h%2Curl_c%2Curl_f%2Curl_h%2Curl_k%2Curl_l%2Curl_m%2Curl_n%2Curl_o%2Curl_q%2Curl_s%2Curl_sq%2Curl_t%2Curl_z%2Cvisibility%2Cvisibility_source%2Co_dims%2Cis_marketplace_printable%2Cis_marketplace_licensable%2Cpubliceditability" \
            "&get_user_info=1" \
            "&jump_to=" \
-           "&user_id={1}" \
+           "&user_id={1.user_id}" \
            "&view_as=use_pref" \
            "&sort=use_pref" \
            "&viewerNSID=" \
            "&method=flickr.people.getPhotos" \
            "&csrf=" \
-           "&api_key={2}" \
+           "&api_key={1.api_key}" \
            "&format=json" \
            "&hermes=1" \
            "&hermesClient=1" \
-           "&reqId={3}" \
-           "&nojsoncallback=1".format(page, credentials.user_id, credentials.api_key, credentials.req_id)
+           "&reqId={1.req_id}" \
+           "&nojsoncallback=1".format(page, credentials)
 
 
 def get_images_from_page(page: int, credentials: Credentials) -> List[FlickrImage]:
