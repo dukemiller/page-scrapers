@@ -1,5 +1,5 @@
-""" Downloads images from zen masters(?) from a site with some purposefully obfuscated
-site hiding it's art, also apparently built in dreamweaver. """
+""" Downloads images from zen masters(?) from a site with a bit of obfuscated
+code hiding it's art, also apparently built in dreamweaver. """
 
 from tools import REQUESTS_HEADER, get_url_filename, make_output_folder
 from bs4 import BeautifulSoup
